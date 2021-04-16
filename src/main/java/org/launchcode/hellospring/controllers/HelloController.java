@@ -7,38 +7,32 @@ import org.springframework.web.bind.annotation.*;
  * Created by Chris Bay
  */
 @Controller
+@ResponseBody
+@RequestMapping("hello")
 public class HelloController {
 
-    //    // Handle request at path /hello
-//    @GetMapping("hello")
-//    @ResponseBody
-//    public String hello() {
-//        return "Hello, Spring!";
-//    }
-
+    ///hello/goodbye
     @GetMapping("goodbye")
-    @ResponseBody
+
     public String goodbye() {
         return "Goodbye, Spring!";
     }
 
-    // Handles requests of the form /hello?name=LaunchCode
-//    @PostMapping("hello")
-    @RequestMapping(value = "hello", method = {RequestMethod.GET, RequestMethod.POST})
-    @ResponseBody
+
+    @RequestMapping(method = {RequestMethod.GET, RequestMethod.POST})
+
     public String helloWithQueryParam(@RequestParam String name) {
         return "Hello, " + name + "!  sent with @RequestMethod";
     }
 
     // Handles requests of the form /hello/LaunchCode
     @GetMapping("hello/{name}")
-    @ResponseBody
+
     public String helloWithPathParam(@PathVariable String name) {
         return "Hello, " + name + "!";
     }
 
     @GetMapping
-    @ResponseBody
     public String helloForms(){
         return "<html>" +
                 "<body>" +
