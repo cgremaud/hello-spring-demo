@@ -1,6 +1,7 @@
 package org.launchcode.hellospring.controllers;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 /**
@@ -38,16 +39,8 @@ public class HelloController {
 
 
     @GetMapping("form")
-    @ResponseBody
-    public String helloForm() {
-        return "<html>" +
-                "<body>" +
-                "<form action = 'hello' method = 'post'>" + // submit a request to /hello
-                "<input type = 'text' name = 'name' >" +
-                "<input type = 'submit' value = 'Greet Me!' >" +
-                "</form>" +
-                "</body>" +
-                "</html>";
+    public String helloForm(Model model) {
+        return "form"; //assumes that a string is a name of a template unless there is an @ResposneBody template.
     }
 
 }
