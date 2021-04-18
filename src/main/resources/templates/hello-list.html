@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+  <ul>
+    <th:block th:if = "${names.size()}" th:each = "name : ${names}">
+      <li th:text = "${name}">Placeholder name</li>
+    </th:block>
+  </ul>
+  <ul>
+    <th:block th:if = "${numbers.size()}" th:each = "number : ${numbers}">
+      <li th:if = "${number > 0 and number % 2 == 0}" th:text = "${number}">No number</li>
+    </th:block>
+  </ul>
+
+</body>
+</html>
